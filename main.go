@@ -180,7 +180,7 @@ func fetchSymplaEvents(eventType string) ([]Event, error) {
             "page": 1
         },
         "ignoreLocation": true
-    }`, service, intArrayToString(organizerIDs))
+    }`, service, intArrayToString(organizerIds))
 
 	//Makes HTTP request to Sympla's API
 	resp, err := http.Post("https://www.sympla.com.br/api/v1/search", "application/json", strings.NewReader(requestBody))
@@ -191,7 +191,7 @@ func fetchSymplaEvents(eventType string) ([]Event, error) {
 	defer resp.Body.Close();
 
 	//Reads response's request
-	body, err := ioutil.ReadAll(resp.Body)
+	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
 	}
