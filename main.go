@@ -66,7 +66,7 @@ type EndDateFormats struct {
 type Event struct {
 	Name string `json:"name"`
 	Images string `json:"images"`
-	Location string `json:"images"`
+	Location string `json:"location"`
 	StartDateFormats StartDateFormats `json:"start_date_formats"`
 	EndDateFormats EndDateFormats `json:"end_date_formats"`
 	URL string `json:"url"`
@@ -222,7 +222,7 @@ func formatEventsMessage(events []Event) string {
 	} else {
 		message += "Events:"
 		for _, event := range events {
-			message += fmt.Sprintf("- %s\n  Local: %s\n  Data: %s\n  URL: %s\n \n\n\n", event. Name, event.Location.City, event.StartDateFormats.Pt, event.URL)
+			message += fmt.Sprintf("- %s\n  Local: %s\n  Data: %s\n  URL: %s\n \n\n\n", event.Name, event.Location.City, event.StartDateFormats.Pt, event.URL)
             message += "----------------------------------------\n\n\n"
 		}
 	}
